@@ -1,4 +1,4 @@
-#include monty.h
+#include "monty.h"
 
 /**
  * main - monty
@@ -9,7 +9,7 @@
 
 int main(int argc, char **argv)
 {
-	intruction_t function[] = {
+	instruction_t instructions[] = {
 		{"push", op_push},
 		{"pall", op_pall},
 		{"pint", op_pint},
@@ -17,4 +17,5 @@ int main(int argc, char **argv)
 		{"swap", op_swap},
 		{"add", op_add},
 		{NULL, NULL},
+	};
 }
