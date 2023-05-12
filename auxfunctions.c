@@ -94,3 +94,10 @@ void op_pint(stack_t **stack, unsigned int line_number)
 	printf("%d\n", pointer->n);
 }
 
+/**
+ * op_nop - it doesn't do anything
+*/
+void op_nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
+{
+
+}
