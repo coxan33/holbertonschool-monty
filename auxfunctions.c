@@ -7,14 +7,14 @@
  */
 int number(char s[])
 {
-	int a = 0;
+        int i = 0;
 
-	if(s[0] == '-')
-		s[0] = '0';
-	for (a = 0; s[0]; a++)
-		if (!isdigit(s[0]))
-			return (0);
-	return (1);
+        if(s[0] == '-')
+                s[0] = '0';
+        for (i = 0; s[i]; i++)
+                if (!isdigit(s[i]))
+                        return (0);
+        return (1);
 }
 
 /**
@@ -65,13 +65,17 @@ else
 
 void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
+        stack_t *temp;
 
-	while ((*stack)->prev != NULL)
-		stack = (*stack)->prev;
-	while (stack != NULL)
+	if (!*stack)
+		return;
+	temp = *stack;
+	while (temp->next)
+		temp = temp->next;
+	while (temp)
 	{
-		printf("%d\n", (*stack)->n);
-		stack = (*stack)->next;
+		printf("%d\n", temp->n);
+		temp = temp->prev;
 	}
 }
 	/**
@@ -83,9 +87,9 @@ void op_pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pointer;
 
-	if(!pointer)
+	if (!*stack)
 	{
-		fprintf(stderr, "L%u: cant pint stack\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	pointer = *stack;
@@ -99,5 +103,6 @@ void op_pint(stack_t **stack, unsigned int line_number)
 */
 void op_nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-
+	(void)stack;
+	(void)line_number;
 }
