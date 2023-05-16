@@ -34,7 +34,7 @@ void (*getopc(char *opc))(stack_t **stack, unsigned int line_number)
 int main(int argc, char **argv)
 {
 	FILE *fp = NULL;
-	char *buffer = NULL
+	char *buffer = NULL;
 	char *opc = NULL;
 	int cont = 0;
 	size_t size = 0;
