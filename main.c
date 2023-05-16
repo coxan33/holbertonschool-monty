@@ -62,5 +62,6 @@ int main(int argc, char **argv)
         }
         free(buffer);
         fclose(fp);
+	free_stack(stack);
         return (0);
 }
