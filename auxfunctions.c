@@ -7,14 +7,14 @@
  */
 int number(char s[])
 {
-        int i = 0;
+	int i = 0;
 
-        if(s[0] == '-')
-                s[0] = '0';
-        for (i = 0; s[i]; i++)
-                if (!isdigit(s[i]))
-                        return (0);
-        return (1);
+	if (s[0] == '-')
+		s[0] = '0';
+	for (i = 0; s[i]; i++)
+		if (!isdigit(s[i]))
+			return (0);
+	return (1);
 }
 
 /**
@@ -36,25 +36,25 @@ void op_push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-num = atoi(pointer);
-new = malloc(sizeof(stack_t));
-if (!new)
-	return;
-new->n = num;
-new->next = NULL;
-if (end)
-{
+	num = atoi(pointer);
+	new = malloc(sizeof(stack_t));
+	if (!new)
+		return;
+	new->n = num;
+	new->next = NULL;
+	if (end)
+	{
 	while (end->next)
 		end = end->next;
 	new->prev = end;
 	end->next = new;
 
-}
-else
-{
+	}
+	else
+	{
 	*stack = new;
 	new->prev = NULL;
-}
+	}
 }
 
 /**
@@ -65,7 +65,7 @@ else
 
 void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 {
-        stack_t *temp;
+	stack_t *temp;
 
 	if (!*stack)
 		return;
@@ -78,7 +78,7 @@ void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number)
 		temp = temp->prev;
 	}
 }
-	/**
+/**
  * op_pint - Print Stack.
  * @stack: Linked list.
  * @line_number: Number of line.
@@ -100,8 +100,11 @@ void op_pint(stack_t **stack, unsigned int line_number)
 
 /**
  * op_nop - it doesn't do anything
-*/
-void op_nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number)
+ * @stack: Linked list.
+ * @line_number: Number if Line
+ */
+
+void op_nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;

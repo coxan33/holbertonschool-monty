@@ -40,7 +40,7 @@ int number(char s[]);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, __attribute__((unused)) unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
-void op_nop(__attribute__((unused)) stack_t **stack, __attribute__((unused)) unsigned int line_number);
+void op_nop(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 #endif
 
