@@ -13,6 +13,7 @@ void (*getopc(char *opc))(stack_t **stack, unsigned int line_number)
 		{"pall", op_pall},
 		{"pint", op_pint},
 		{"nop", op_nop},
+		{"pop", op_pop},
 		{NULL, NULL},
 	};
 	int i = 0;

@@ -17,3 +17,30 @@ void free_stack(stack_t *stack)
 		to_be_free = temp;
 	}
 }
+
+/**
+ * op_pop - deletes the current top of the stack.
+ * @stack: Linked list.
+ * @line_number: Number line.
+ */
+void op_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node = *stack, *delete;
+
+	if (!*stack || !stack)
+	{
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!node->next)
+	{
+		free(node);
+		*stack = NULL;
+	}
+	else
+		while (node->next->next)
+			node = node->next;
+	delete = node->next;
+	node->next = NULL;
+	free(delete);
+}
